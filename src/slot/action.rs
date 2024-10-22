@@ -206,7 +206,7 @@ use crate::Slot;
 pub(in crate::slot) struct Actions;
 
 impl Actions {
-  fn new() -> String {
+  pub(in crate::slot) fn new() -> String {
     Slot::spin(&ACTIONS)
   }
 }
