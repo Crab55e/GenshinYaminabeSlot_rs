@@ -1,7 +1,3 @@
-use rand::rngs::ThreadRng;
-use rand::thread_rng;
-use rand::seq::SliceRandom;
-
 const CHARACTERS_NAME: [&str; 96] = [
     "主人公",
     "アーロイ",
@@ -101,12 +97,12 @@ const CHARACTERS_NAME: [&str; 96] = [
     "ダインスレイヴ",
 ];
 
+use crate::Slot;
+
 pub(in crate::slot) struct Characters;
 
 impl Characters {
     pub(in crate::slot) fn new() -> String {
-        let mut rng: ThreadRng = thread_rng();
-        let res_character_name: &str = CHARACTERS_NAME.choose(&mut rng).unwrap();
-        res_character_name.to_string()
+        Slot::spin(&CHARACTERS_NAME)
     }
 }
