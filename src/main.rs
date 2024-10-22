@@ -1,3 +1,6 @@
+mod slot;
+use slot::Slot;
+
 fn main() {
-    println!("Hello, world!");
+  Slot::new();
 }
